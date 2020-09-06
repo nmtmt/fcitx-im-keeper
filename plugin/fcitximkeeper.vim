@@ -12,7 +12,7 @@ if has("unix")
     autocmd!
     autocmd BufWinEnter  * let b:input_toggle = 0
     autocmd InsertEnter  * call ToggleOnEnter()
-    autocmd CmdlineLeave * call ToggleOnLeave()
+    "autocmd CmdlineLeave * call ToggleOnLeave() " not work with deoplete
   augroup END
 
   if has("gui_running")
@@ -67,11 +67,11 @@ if has("unix")
   function! CharWithIMControl(cmd)
     call ToggleOnEnter()
 
-    let b:char = nr2char(getchar())
-    let b:cmd = a:cmd . b:char
+    let l:char = nr2char(getchar())
+    let l:cmd = a:cmd . l:char
 
     call ToggleOnLeave()
-    return b:cmd
+    return l:cmd
   endfunction
 
   function! CmdEnter(cmd)
