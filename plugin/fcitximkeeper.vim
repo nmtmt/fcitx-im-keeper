@@ -12,7 +12,7 @@ if has("unix")
     autocmd!
     autocmd BufWinEnter  * let b:input_toggle = 0
     autocmd InsertEnter  * call ToggleOnEnter()
-    "autocmd CmdlineLeave * call ToggleOnLeave() " not work with deoplete
+    autocmd CmdlineLeave * call ToggleOnLeave() " not work with deoplete on 2019/09/06. work well on 2019/09/07. ???
   augroup END
 
   if has("gui_running")
