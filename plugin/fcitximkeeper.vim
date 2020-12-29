@@ -7,7 +7,7 @@ endif
 let s:save_cpo = &cpo
 set cpo&vim
 
-if has("unix") && !has("mac")
+if has("unix") && !( has("mac") && has("gui") )
   augroup FcitxImKeeper
     autocmd!
     autocmd BufWinEnter  * let b:input_toggle = 0
